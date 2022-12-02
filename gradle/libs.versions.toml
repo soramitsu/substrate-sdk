@@ -1,0 +1,52 @@
+[versions]
+krypto = "3.4.0"
+bignum = "0.3.7"
+datetime = "0.4.0"
+bytebuffer = "1.0.95"
+ktor = "2.0.0"
+coroutines = "1.6.4"
+serialization-json = "1.4.1"
+spongycastle = "1.58.0.0"
+crypto-eddsa = "0.3.0"
+crypto-web3j = "4.6.0-android"
+lz4 = "1.7.1"
+okio = "3.2.0"
+cryptohash = "0.10.1"
+
+[libraries]
+krypto = { module = "com.soywiz.korlibs.krypto:krypto", version.ref = "krypto" }
+bignum = { module = "com.ionspin.kotlin:bignum", version.ref = "bignum" }
+datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "datetime" }
+bytebuffer = { module = "com.ditchoom:buffer", version.ref = "bytebuffer" }
+
+ktor-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
+ktor-websockets = { module = "io.ktor:ktor-client-websockets", version.ref = "ktor" }
+ktor-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
+ktor-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
+ktor-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
+ktor-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor" }
+
+coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
+coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
+coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+
+serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization-json" }
+
+spongycastle-bcpkix = { module = "com.madgag.spongycastle:bcpkix-jdk15on", version.ref = "spongycastle" }
+spongycastle-bcpg = { module = "com.madgag.spongycastle:bcpg-jdk15on", version.ref = "spongycastle" }
+crypto-eddsa = { module = "net.i2p.crypto:eddsa", version.ref = "crypto-eddsa" }
+crypto-web3j = { module = "org.web3j:crypto", version.ref = "crypto-web3j" }
+
+lz4 = { module = "org.lz4:lz4-java", version.ref = "lz4" }
+
+okio = { module = "com.squareup.okio:okio", version.ref = "okio" }
+
+cryptohash = { module = "com.appmattus.crypto:cryptohash", version.ref = "cryptohash" }
+
+polkajscale = "jp.co.soramitsu:polkaj-scale:0.2.3"
+
+[bundles]
+ktor = ["ktor-core", "ktor-json", "ktor-negotiation", "ktor-logging", "ktor-websockets"]
+crypto-android = ["spongycastle-bcpkix", "spongycastle-bcpg", "crypto-eddsa", "crypto-web3j"]
