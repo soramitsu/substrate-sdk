@@ -1,6 +1,8 @@
 package jp.co.soramitsu.xnetworking.wsrpc
 
 import jp.co.soramitsu.xnetworking.wsrpc.exception.ConnectionClosedException
+import jp.co.soramitsu.xnetworking.wsrpc.json.JsonConfigs
+import jp.co.soramitsu.xnetworking.wsrpc.logging.EmptyLogger
 import jp.co.soramitsu.xnetworking.wsrpc.logging.Logger
 import jp.co.soramitsu.xnetworking.wsrpc.mappers.nonNull
 import jp.co.soramitsu.xnetworking.wsrpc.mappers.string
@@ -32,10 +34,12 @@ import kotlinx.serialization.json.Json
 import kotlin.jvm.Synchronized
 
 class SocketService(
-    val jsonMapper: Json,
-    private val logger: Logger,
-    private val reconnector: Reconnector
-) : RpcSocketListener {
+    private val logger: Logger
+): RpcSocketListener {
+    constructor(): this(logger = EmptyLogger)
+
+    val jsonMapper: Json = JsonConfigs.standard
+    private val reconnector: Reconnector = Reconnector()
 
     private val requestExecutor = RequestExecutor()
 

@@ -4,6 +4,7 @@ import jp.co.soramitsu.xnetworking.extensions.fromHex
 import jp.co.soramitsu.xnetworking.scale.EncodableStruct
 import jp.co.soramitsu.xnetworking.scale.Schema
 import jp.co.soramitsu.xnetworking.wsrpc.exception.RpcException
+import jp.co.soramitsu.xnetworking.wsrpc.request.runtime.chain.RuntimeVersion
 import jp.co.soramitsu.xnetworking.wsrpc.response.RpcResponse
 import kotlinx.serialization.InternalSerializationApi
 import kotlinx.serialization.json.Json
@@ -61,16 +62,16 @@ class POJOCollectionMapper<T: Any>(val classRef: KClass<T>) : NullableMapper<Lis
     override fun mapNullable(rpcResponse: RpcResponse, jsonMapper: Json): List<T>? {
         val raw = rpcResponse.result?.jsonArray ?: return null
         return raw.map {
-            jsonMapper.decodeFromJsonElement(classRef.serializer(), it) // TODO: Test .serializer() on iOS!
+            jsonMapper.decodeFromJsonElement(classRef.serializer(), it)
         }
     }
 }
 
-class POJOMapper<T: Any>(val classRef: KClass<T>) : NullableMapper<T>() {
+open class POJOMapper<T: Any>(val classRef: KClass<T>) : NullableMapper<T>() {
 
     @OptIn(InternalSerializationApi::class)
     override fun mapNullable(rpcResponse: RpcResponse, jsonMapper: Json): T? {
         val result = rpcResponse.result ?: return null
-        return jsonMapper.decodeFromJsonElement(classRef.serializer(), result) // TODO: Test .serializer() on iOS!
+        return jsonMapper.decodeFromJsonElement(classRef.serializer(), result)
     }
 }

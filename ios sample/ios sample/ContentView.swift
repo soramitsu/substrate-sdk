@@ -27,7 +27,26 @@ struct ContentView: View {
     }
     
     func load() {
-        // Loading data
+        var service = SocketService()
+        service.start(
+            url: "wss://ws.parachain-collator-1.c1.sora2.soramitsu.co.jp",
+            remainPaused: false
+        )
+        var result = service.executeAsync(
+            request: RuntimeRequest(
+                method: "chain_getRuntimeVersion",
+                params: []
+            ),
+            deliveryType: DeliveryType.atLeastOnce,
+            mapper: RuntimeVersionMapper()
+        ) { result, error in
+            if let res = result {
+                print("specVersion: " + String(describing: (res as! NullableContainer<RuntimeVersion>).result!.specVersion))
+            }
+            if let e = error {
+                print("error: " + String(describing: e))
+            }
+        }
     }
 }
 

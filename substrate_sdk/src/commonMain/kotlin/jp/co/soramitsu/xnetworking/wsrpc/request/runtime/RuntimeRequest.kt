@@ -28,42 +28,15 @@ open class RuntimeRequest(
     @SerialName("params")
     val params: List<@Contextual Any>,
     @SerialName("id")
-    val id: Int = nextId(),
-) : RpcRequest()
+    val id: Int,
+) : RpcRequest() {
 
-object AnyAsRequestParamsSerializer : KSerializer<Any> {
-    override val descriptor: SerialDescriptor = PrimitiveSerialDescriptor("Color", PrimitiveKind.STRING)
-
-    override fun serialize(encoder: Encoder, value: Any) {
-        when (value) {
-            is String -> {
-                encoder.encodeString(value)
-            }
-            is List<*> -> {
-                val listSerializer = ListSerializer(String.serializer())
-                listSerializer.serialize(encoder, value as List<String>)
-            }
-            else -> throw IllegalStateException()
-        }
-    }
-
-    override fun deserialize(decoder: Decoder): Any {
-        val jsonDecoder = decoder as JsonDecoder
-        when (val jsonElement = jsonDecoder.decodeJsonElement()) {
-            is JsonPrimitive -> {
-                return jsonElement.content
-            }
-            is JsonArray -> {
-                return jsonElement.jsonArray.mapNotNull {
-                    try {
-                        (jsonElement as JsonPrimitive).content
-                    } catch (e: SerializationException) {
-                        e.printStackTrace()
-                        null
-                    }
-                }
-            }
-            else -> throw IllegalStateException()
-        }
-    }
+    constructor(
+        method: String,
+        params: List<@Contextual Any>,
+    ): this(
+        method = method,
+        params = params,
+        id = nextId()
+    )
 }

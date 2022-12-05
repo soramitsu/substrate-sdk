@@ -12,7 +12,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
-class HasherTest {
+class BlakeTest {
 
     @Test
     fun `check blake2b128`() {
@@ -45,62 +45,12 @@ class HasherTest {
     }
 
     @Test
-    fun `check keccak256`() {
-        val byteArray = "e2db688cbc776a7711c573eb1edeeb76ead9fb26e14f78467a3c17620bf72925".fromHex()
-        val result = byteArray.keccak256()
-        assertEquals(
-            expected = "b607ea97c8c0dfe6ea78d56d2f1046362f9f43edf208b5b500259cf4f77d82b0",
-            actual = result.toHexString()
-        )
-    }
-
-    @Test
     fun `check blake2b128Concat`() {
         val byteArray = "e2db688cbc776a7711c573eb1edeeb76ead9fb26e14f78467a3c17620bf72925".fromHex()
         val result = byteArray.blake2b128Concat()
         assertEquals(
             expected = "428cafa6a823bc9f42ae83b5c496c0d2e2db688cbc776a7711c573eb1edeeb76ead9fb26e14f78467a3c17620bf72925",
             actual = result.toHexString()
-        )
-    }
-
-    @Test
-    fun `check xxHash64`() {
-        val byteArray = "e2db688cbc776a7711c573eb1edeeb76ead9fb26e14f78467a3c17620bf72925".fromHex()
-        val result = byteArray.xxHash64()
-        assertEquals(
-            expected = 5794077967867516868,
-            actual = result
-        )
-    }
-
-    @Test
-    fun `check xxHash64Concat`() {
-        val byteArray = "e2db688cbc776a7711c573eb1edeeb76ead9fb26e14f78467a3c17620bf72925".fromHex()
-        val result = byteArray.xxHash64Concat().toHexString()
-        assertEquals(
-            expected = "c417a9a336b36850e2db688cbc776a7711c573eb1edeeb76ead9fb26e14f78467a3c17620bf72925",
-            actual = result
-        )
-    }
-
-    @Test
-    fun `check xxHash128`() {
-        val byteArray = "e2db688cbc776a7711c573eb1edeeb76ead9fb26e14f78467a3c17620bf72925".fromHex()
-        val result = byteArray.xxHash128().toHexString()
-        assertEquals(
-            expected = "c417a9a336b36850cfdbc40ffff7afc5",
-            actual = result
-        )
-    }
-
-    @Test
-    fun `check xxHash256`() {
-        val byteArray = "e2db688cbc776a7711c573eb1edeeb76ead9fb26e14f78467a3c17620bf72925".fromHex()
-        val result = byteArray.xxHash256().toHexString()
-        assertEquals(
-            expected = "c417a9a336b36850cfdbc40ffff7afc59e74cfef2f89f219d042ef241f0853e4",
-            actual = result
         )
     }
 
@@ -123,7 +73,6 @@ class HasherTest {
     fun `blake2b128Concat should be thread safe`() {
         assertHashThreadSafety { it.blake2b128Concat() }
     }
-
 
     private fun assertHashThreadSafety(block: (bytes: ByteArray) -> ByteArray) = runBlocking {
         val testData = (0..1000).map { Random.nextBytes(32) }

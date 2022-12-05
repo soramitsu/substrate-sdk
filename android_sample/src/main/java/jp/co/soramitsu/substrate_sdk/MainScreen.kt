@@ -23,28 +23,12 @@ import jp.co.soramitsu.xnetworking.wsrpc.request.DeliveryType
 import jp.co.soramitsu.xnetworking.wsrpc.request.runtime.AnyAsRequestParamsSerializer
 import jp.co.soramitsu.xnetworking.wsrpc.request.runtime.RuntimeRequest
 import jp.co.soramitsu.xnetworking.wsrpc.request.runtime.chain.RuntimeVersion
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.modules.SerializersModule
 
 private val socketService = SocketService(
-    jsonMapper = Json {
-        prettyPrint = false
-        encodeDefaults = true
-        isLenient = true
-        ignoreUnknownKeys = true
-        serializersModule = SerializersModule {
-            contextual(Any::class, AnyAsRequestParamsSerializer)
-        }
-    },
-    logger = object : Logger {
-        override fun log(message: String?) {
-        }
-
-        override fun log(throwable: Throwable?) {
-        }
-    },
-    reconnector = Reconnector()
 )
 
 @Composable
@@ -76,6 +60,7 @@ fun MainScreen() {
         AppButton(
             text = "Check WebSocket connection",
             onClick = {
+                Log.d("mLog", "click")
                 coroutineScope.launch {
                     socketService.start("wss://ws.parachain-collator-1.c1.sora2.soramitsu.co.jp")
                     val result = socketService.executeAsync(
