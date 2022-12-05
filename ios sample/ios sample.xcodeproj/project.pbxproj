@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		36C37058282265F10027BA77 /* KMM_sampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C37057282265F10027BA77 /* KMM_sampleApp.swift */; };
+		36C37058282265F10027BA77 /* ios_sampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C37057282265F10027BA77 /* ios_sampleApp.swift */; };
 		36C3705A282265F10027BA77 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C37059282265F10027BA77 /* ContentView.swift */; };
 		36C3705C282265F10027BA77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36C3705B282265F10027BA77 /* Assets.xcassets */; };
 		36C3705F282265F10027BA77 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36C3705E282265F10027BA77 /* Preview Assets.xcassets */; };
-		36C37069282265F10027BA77 /* KMM_sampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C37068282265F10027BA77 /* KMM_sampleTests.swift */; };
-		36C37073282265F20027BA77 /* KMM_sampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C37072282265F20027BA77 /* KMM_sampleUITests.swift */; };
-		36C37075282265F20027BA77 /* KMM_sampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C37074282265F20027BA77 /* KMM_sampleUITestsLaunchTests.swift */; };
-		7B3B1F95891274839DCE9C0A /* Pods_KMM_sample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5202E8C2CDE7BC089251A85 /* Pods_KMM_sample.framework */; };
+		36C37069282265F10027BA77 /* ios_sampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C37068282265F10027BA77 /* ios_sampleTests.swift */; };
+		36C37073282265F20027BA77 /* ios_sampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C37072282265F20027BA77 /* ios_sampleUITests.swift */; };
+		36C37075282265F20027BA77 /* ios_sampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C37074282265F20027BA77 /* ios_sampleUITestsLaunchTests.swift */; };
+		7B3B1F95891274839DCE9C0A /* Pods_ios_sample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5202E8C2CDE7BC089251A85 /* Pods_ios_sample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,31 +23,31 @@
 			containerPortal = 36C3704C282265F10027BA77 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 36C37053282265F10027BA77;
-			remoteInfo = "KMM sample";
+			remoteInfo = "ios sample";
 		};
 		36C3706F282265F20027BA77 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 36C3704C282265F10027BA77 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 36C37053282265F10027BA77;
-			remoteInfo = "KMM sample";
+			remoteInfo = "ios sample";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		36C37054282265F10027BA77 /* KMM sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KMM sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		36C37057282265F10027BA77 /* KMM_sampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMM_sampleApp.swift; sourceTree = "<group>"; };
+		36C37054282265F10027BA77 /* ios sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		36C37057282265F10027BA77 /* ios_sampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_sampleApp.swift; sourceTree = "<group>"; };
 		36C37059282265F10027BA77 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		36C3705B282265F10027BA77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		36C3705E282265F10027BA77 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		36C37064282265F10027BA77 /* KMM sampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "KMM sampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		36C37068282265F10027BA77 /* KMM_sampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMM_sampleTests.swift; sourceTree = "<group>"; };
-		36C3706E282265F20027BA77 /* KMM sampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "KMM sampleUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		36C37072282265F20027BA77 /* KMM_sampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMM_sampleUITests.swift; sourceTree = "<group>"; };
-		36C37074282265F20027BA77 /* KMM_sampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMM_sampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		A4EF42CB0446A6B176CC65D7 /* Pods-KMM sample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KMM sample.debug.xcconfig"; path = "Target Support Files/Pods-KMM sample/Pods-KMM sample.debug.xcconfig"; sourceTree = "<group>"; };
-		A5202E8C2CDE7BC089251A85 /* Pods_KMM_sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KMM_sample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B75A4EBF61C3055655DA7D52 /* Pods-KMM sample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KMM sample.release.xcconfig"; path = "Target Support Files/Pods-KMM sample/Pods-KMM sample.release.xcconfig"; sourceTree = "<group>"; };
+		36C37064282265F10027BA77 /* ios sampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios sampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		36C37068282265F10027BA77 /* ios_sampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_sampleTests.swift; sourceTree = "<group>"; };
+		36C3706E282265F20027BA77 /* ios sampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ios sampleUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		36C37072282265F20027BA77 /* ios_sampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_sampleUITests.swift; sourceTree = "<group>"; };
+		36C37074282265F20027BA77 /* ios_sampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_sampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A4EF42CB0446A6B176CC65D7 /* Pods-ios sample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios sample.debug.xcconfig"; path = "Target Support Files/Pods-ios sample/Pods-ios sample.debug.xcconfig"; sourceTree = "<group>"; };
+		A5202E8C2CDE7BC089251A85 /* Pods_ios_sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_sample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B75A4EBF61C3055655DA7D52 /* Pods-ios sample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios sample.release.xcconfig"; path = "Target Support Files/Pods-ios sample/Pods-ios sample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B3B1F95891274839DCE9C0A /* Pods_KMM_sample.framework in Frameworks */,
+				7B3B1F95891274839DCE9C0A /* Pods_ios_sample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,9 +79,9 @@
 		36C3704B282265F10027BA77 = {
 			isa = PBXGroup;
 			children = (
-				36C37056282265F10027BA77 /* KMM sample */,
-				36C37067282265F10027BA77 /* KMM sampleTests */,
-				36C37071282265F20027BA77 /* KMM sampleUITests */,
+				36C37056282265F10027BA77 /* ios sample */,
+				36C37067282265F10027BA77 /* ios sampleTests */,
+				36C37071282265F20027BA77 /* ios sampleUITests */,
 				36C37055282265F10027BA77 /* Products */,
 				B616A0D19D876FF152F951B7 /* Pods */,
 				74003F9F91824357E8BFD154 /* Frameworks */,
@@ -91,22 +91,22 @@
 		36C37055282265F10027BA77 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				36C37054282265F10027BA77 /* KMM sample.app */,
-				36C37064282265F10027BA77 /* KMM sampleTests.xctest */,
-				36C3706E282265F20027BA77 /* KMM sampleUITests.xctest */,
+				36C37054282265F10027BA77 /* ios sample.app */,
+				36C37064282265F10027BA77 /* ios sampleTests.xctest */,
+				36C3706E282265F20027BA77 /* ios sampleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		36C37056282265F10027BA77 /* KMM sample */ = {
+		36C37056282265F10027BA77 /* ios sample */ = {
 			isa = PBXGroup;
 			children = (
-				36C37057282265F10027BA77 /* KMM_sampleApp.swift */,
+				36C37057282265F10027BA77 /* ios_sampleApp.swift */,
 				36C37059282265F10027BA77 /* ContentView.swift */,
 				36C3705B282265F10027BA77 /* Assets.xcassets */,
 				36C3705D282265F10027BA77 /* Preview Content */,
 			);
-			path = "KMM sample";
+			path = "ios sample";
 			sourceTree = "<group>";
 		};
 		36C3705D282265F10027BA77 /* Preview Content */ = {
@@ -117,27 +117,27 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		36C37067282265F10027BA77 /* KMM sampleTests */ = {
+		36C37067282265F10027BA77 /* ios sampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				36C37068282265F10027BA77 /* KMM_sampleTests.swift */,
+				36C37068282265F10027BA77 /* ios_sampleTests.swift */,
 			);
-			path = "KMM sampleTests";
+			path = "ios sampleTests";
 			sourceTree = "<group>";
 		};
-		36C37071282265F20027BA77 /* KMM sampleUITests */ = {
+		36C37071282265F20027BA77 /* ios sampleUITests */ = {
 			isa = PBXGroup;
 			children = (
-				36C37072282265F20027BA77 /* KMM_sampleUITests.swift */,
-				36C37074282265F20027BA77 /* KMM_sampleUITestsLaunchTests.swift */,
+				36C37072282265F20027BA77 /* ios_sampleUITests.swift */,
+				36C37074282265F20027BA77 /* ios_sampleUITestsLaunchTests.swift */,
 			);
-			path = "KMM sampleUITests";
+			path = "ios sampleUITests";
 			sourceTree = "<group>";
 		};
 		74003F9F91824357E8BFD154 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A5202E8C2CDE7BC089251A85 /* Pods_KMM_sample.framework */,
+				A5202E8C2CDE7BC089251A85 /* Pods_ios_sample.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -145,8 +145,8 @@
 		B616A0D19D876FF152F951B7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A4EF42CB0446A6B176CC65D7 /* Pods-KMM sample.debug.xcconfig */,
-				B75A4EBF61C3055655DA7D52 /* Pods-KMM sample.release.xcconfig */,
+				A4EF42CB0446A6B176CC65D7 /* Pods-ios sample.debug.xcconfig */,
+				B75A4EBF61C3055655DA7D52 /* Pods-ios sample.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -154,28 +154,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		36C37053282265F10027BA77 /* KMM sample */ = {
+		36C37053282265F10027BA77 /* ios sample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 36C37078282265F20027BA77 /* Build configuration list for PBXNativeTarget "KMM sample" */;
+			buildConfigurationList = 36C37078282265F20027BA77 /* Build configuration list for PBXNativeTarget "ios sample" */;
 			buildPhases = (
 				4096DEEBD94CA5381542AF40 /* [CP] Check Pods Manifest.lock */,
 				36C37050282265F10027BA77 /* Sources */,
 				36C37051282265F10027BA77 /* Frameworks */,
 				36C37052282265F10027BA77 /* Resources */,
-				53E7A077852D4D900DF8F263 /* [CP] Embed Pods Frameworks */,
+				A5424BA0A1926ACC0A962646 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "KMM sample";
-			productName = "KMM sample";
-			productReference = 36C37054282265F10027BA77 /* KMM sample.app */;
+			name = "ios sample";
+			productName = "ios sample";
+			productReference = 36C37054282265F10027BA77 /* ios sample.app */;
 			productType = "com.apple.product-type.application";
 		};
-		36C37063282265F10027BA77 /* KMM sampleTests */ = {
+		36C37063282265F10027BA77 /* ios sampleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 36C3707B282265F20027BA77 /* Build configuration list for PBXNativeTarget "KMM sampleTests" */;
+			buildConfigurationList = 36C3707B282265F20027BA77 /* Build configuration list for PBXNativeTarget "ios sampleTests" */;
 			buildPhases = (
 				36C37060282265F10027BA77 /* Sources */,
 				36C37061282265F10027BA77 /* Frameworks */,
@@ -186,14 +186,14 @@
 			dependencies = (
 				36C37066282265F10027BA77 /* PBXTargetDependency */,
 			);
-			name = "KMM sampleTests";
-			productName = "KMM sampleTests";
-			productReference = 36C37064282265F10027BA77 /* KMM sampleTests.xctest */;
+			name = "ios sampleTests";
+			productName = "ios sampleTests";
+			productReference = 36C37064282265F10027BA77 /* ios sampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		36C3706D282265F20027BA77 /* KMM sampleUITests */ = {
+		36C3706D282265F20027BA77 /* ios sampleUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 36C3707E282265F20027BA77 /* Build configuration list for PBXNativeTarget "KMM sampleUITests" */;
+			buildConfigurationList = 36C3707E282265F20027BA77 /* Build configuration list for PBXNativeTarget "ios sampleUITests" */;
 			buildPhases = (
 				36C3706A282265F20027BA77 /* Sources */,
 				36C3706B282265F20027BA77 /* Frameworks */,
@@ -204,9 +204,9 @@
 			dependencies = (
 				36C37070282265F20027BA77 /* PBXTargetDependency */,
 			);
-			name = "KMM sampleUITests";
-			productName = "KMM sampleUITests";
-			productReference = 36C3706E282265F20027BA77 /* KMM sampleUITests.xctest */;
+			name = "ios sampleUITests";
+			productName = "ios sampleUITests";
+			productReference = 36C3706E282265F20027BA77 /* ios sampleUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -232,7 +232,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 36C3704F282265F10027BA77 /* Build configuration list for PBXProject "KMM sample" */;
+			buildConfigurationList = 36C3704F282265F10027BA77 /* Build configuration list for PBXProject "ios sample" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -245,9 +245,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				36C37053282265F10027BA77 /* KMM sample */,
-				36C37063282265F10027BA77 /* KMM sampleTests */,
-				36C3706D282265F20027BA77 /* KMM sampleUITests */,
+				36C37053282265F10027BA77 /* ios sample */,
+				36C37063282265F10027BA77 /* ios sampleTests */,
+				36C3706D282265F20027BA77 /* ios sampleUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -294,28 +294,28 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-KMM sample-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-ios sample-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		53E7A077852D4D900DF8F263 /* [CP] Embed Pods Frameworks */ = {
+		A5424BA0A1926ACC0A962646 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-KMM sample/Pods-KMM sample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ios sample/Pods-ios sample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-KMM sample/Pods-KMM sample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-ios sample/Pods-ios sample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KMM sample/Pods-KMM sample-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ios sample/Pods-ios sample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -326,7 +326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36C3705A282265F10027BA77 /* ContentView.swift in Sources */,
-				36C37058282265F10027BA77 /* KMM_sampleApp.swift in Sources */,
+				36C37058282265F10027BA77 /* ios_sampleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,7 +334,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36C37069282265F10027BA77 /* KMM_sampleTests.swift in Sources */,
+				36C37069282265F10027BA77 /* ios_sampleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,8 +342,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36C37075282265F20027BA77 /* KMM_sampleUITestsLaunchTests.swift in Sources */,
-				36C37073282265F20027BA77 /* KMM_sampleUITests.swift in Sources */,
+				36C37075282265F20027BA77 /* ios_sampleUITestsLaunchTests.swift in Sources */,
+				36C37073282265F20027BA77 /* ios_sampleUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,12 +352,12 @@
 /* Begin PBXTargetDependency section */
 		36C37066282265F10027BA77 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 36C37053282265F10027BA77 /* KMM sample */;
+			target = 36C37053282265F10027BA77 /* ios sample */;
 			targetProxy = 36C37065282265F10027BA77 /* PBXContainerItemProxy */;
 		};
 		36C37070282265F20027BA77 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 36C37053282265F10027BA77 /* KMM sample */;
+			target = 36C37053282265F10027BA77 /* ios sample */;
 			targetProxy = 36C3706F282265F20027BA77 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -488,13 +488,13 @@
 		};
 		36C37079282265F20027BA77 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A4EF42CB0446A6B176CC65D7 /* Pods-KMM sample.debug.xcconfig */;
+			baseConfigurationReference = A4EF42CB0446A6B176CC65D7 /* Pods-ios sample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"KMM sample/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"ios sample/Preview Content\"";
 				DEVELOPMENT_TEAM = 4KT5374WDQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -518,13 +518,13 @@
 		};
 		36C3707A282265F20027BA77 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B75A4EBF61C3055655DA7D52 /* Pods-KMM sample.release.xcconfig */;
+			baseConfigurationReference = B75A4EBF61C3055655DA7D52 /* Pods-ios sample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"KMM sample/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"ios sample/Preview Content\"";
 				DEVELOPMENT_TEAM = 4KT5374WDQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -562,7 +562,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KMM sample.app/KMM sample";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ios sample.app/ios sample";
 			};
 			name = Debug;
 		};
@@ -582,7 +582,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KMM sample.app/KMM sample";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ios sample.app/ios sample";
 			};
 			name = Release;
 		};
@@ -600,7 +600,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "KMM sample";
+				TEST_TARGET_NAME = "ios sample";
 			};
 			name = Debug;
 		};
@@ -618,14 +618,14 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "KMM sample";
+				TEST_TARGET_NAME = "ios sample";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		36C3704F282265F10027BA77 /* Build configuration list for PBXProject "KMM sample" */ = {
+		36C3704F282265F10027BA77 /* Build configuration list for PBXProject "ios sample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				36C37076282265F20027BA77 /* Debug */,
@@ -634,7 +634,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		36C37078282265F20027BA77 /* Build configuration list for PBXNativeTarget "KMM sample" */ = {
+		36C37078282265F20027BA77 /* Build configuration list for PBXNativeTarget "ios sample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				36C37079282265F20027BA77 /* Debug */,
@@ -643,7 +643,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		36C3707B282265F20027BA77 /* Build configuration list for PBXNativeTarget "KMM sampleTests" */ = {
+		36C3707B282265F20027BA77 /* Build configuration list for PBXNativeTarget "ios sampleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				36C3707C282265F20027BA77 /* Debug */,
@@ -652,7 +652,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		36C3707E282265F20027BA77 /* Build configuration list for PBXNativeTarget "KMM sampleUITests" */ = {
+		36C3707E282265F20027BA77 /* Build configuration list for PBXNativeTarget "ios sampleUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				36C3707F282265F20027BA77 /* Debug */,

@@ -9,5 +9,5 @@ pluginManagement {
 }
 
 rootProject.name = "XSubstrateSdk"
-include(":android")
+include(":android_sample")
 include(":substrate_sdk")

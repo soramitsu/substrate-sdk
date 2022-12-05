@@ -1,6 +1,6 @@
 //
 //  ContentView.swift
-//  KMM sample
+//  ios sample
 //
 //  Created by Ivan Shlyapkin on 04.05.2022.
 //

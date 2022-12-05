@@ -1,4 +1,4 @@
-package jp.co.soramitsu.appxnetworking
+package jp.co.soramitsu.substrate_sdk
 
 import android.os.Bundle
 import androidx.activity.compose.setContent

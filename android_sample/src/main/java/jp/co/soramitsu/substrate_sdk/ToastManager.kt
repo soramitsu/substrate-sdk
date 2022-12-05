@@ -1,4 +1,4 @@
-package jp.co.soramitsu.appxnetworking
+package jp.co.soramitsu.substrate_sdk
 
 import android.content.Context
 import android.widget.Toast

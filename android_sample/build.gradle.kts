@@ -7,7 +7,7 @@ plugins {
 android {
     compileSdk = 33
     defaultConfig {
-        applicationId = "jp.co.soramitsu.appxnetworking"
+        applicationId = "jp.co.soramitsu.substrate_sdk"
         minSdk = 24
         targetSdk = 33
         versionCode = 1

@@ -1,13 +1,13 @@
 //
-//  KMM_sampleUITestsLaunchTests.swift
-//  KMM sampleUITests
+//  ios_sampleUITestsLaunchTests.swift
+//  ios sampleUITests
 //
 //  Created by Ivan Shlyapkin on 04.05.2022.
 //
 
 import XCTest
 
-class KMM_sampleUITestsLaunchTests: XCTestCase {
+class Ios_sampleUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

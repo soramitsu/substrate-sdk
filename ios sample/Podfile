@@ -1,4 +1,4 @@
-target 'KMM sample' do
+target 'ios sample' do
   use_frameworks!
   platform :ios, '14.1'
   pod 'SubstrateSdk', :path => '../substrate_sdk'
