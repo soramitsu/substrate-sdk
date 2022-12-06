@@ -1,20 +1,18 @@
 package jp.co.soramitsu.xnetworking.encrypt.mnemonic
 
-/*import io.github.novacrypto.bip39.WordList
-
 enum class EnglishWordList : WordList {
     INSTANCE;
+
+    override fun getSpace(): Char {
+        return ' '
+    }
 
     override fun getWord(index: Int): String {
         return words[index]
     }
 
-    fun getIndex(word: String): Int {
+    fun indexOf(word: String): Int {
         return words.indexOf(word)
-    }
-
-    override fun getSpace(): Char {
-        return ' '
     }
 
     companion object {
@@ -2069,5 +2067,4 @@ enum class EnglishWordList : WordList {
             "zoo"
         )
     }
-}*/
-// TODO: infinity_coder
+}
