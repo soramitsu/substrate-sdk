@@ -99,6 +99,7 @@ kotlin {
                 implementation(libs.coroutines.android)
                 implementation(libs.bundles.crypto.android)
                 implementation(libs.lz4)
+                implementation(libs.bundles.novacrypto)
             }
 
             cargo {

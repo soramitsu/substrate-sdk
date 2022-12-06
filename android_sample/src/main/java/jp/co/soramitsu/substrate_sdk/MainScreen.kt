@@ -10,26 +10,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import jp.co.soramitsu.xnetworking.encrypt.EncryptionType
-import jp.co.soramitsu.xnetworking.encrypt.keypair.substrate.SubstrateKeypairFactory
-import jp.co.soramitsu.xnetworking.extensions.fromHex
-import jp.co.soramitsu.xnetworking.extensions.toHexString
-import jp.co.soramitsu.xnetworking.wsrpc.SocketService
-import jp.co.soramitsu.xnetworking.wsrpc.executeAsync
-import jp.co.soramitsu.xnetworking.wsrpc.logging.Logger
-import jp.co.soramitsu.xnetworking.wsrpc.mappers.pojo
-import jp.co.soramitsu.xnetworking.wsrpc.recovery.Reconnector
-import jp.co.soramitsu.xnetworking.wsrpc.request.DeliveryType
-import jp.co.soramitsu.xnetworking.wsrpc.request.runtime.AnyAsRequestParamsSerializer
-import jp.co.soramitsu.xnetworking.wsrpc.request.runtime.RuntimeRequest
-import jp.co.soramitsu.xnetworking.wsrpc.request.runtime.chain.RuntimeVersion
-import kotlinx.coroutines.delay
+import jp.co.soramitsu.substrate_sdk.encrypt.EncryptionType
+import jp.co.soramitsu.substrate_sdk.encrypt.keypair.substrate.SubstrateKeypairFactory
+import jp.co.soramitsu.substrate_sdk.extensions.fromHex
+import jp.co.soramitsu.substrate_sdk.extensions.toHexString
+import jp.co.soramitsu.substrate_sdk.wsrpc.SocketService
+import jp.co.soramitsu.substrate_sdk.wsrpc.executeAsync
+import jp.co.soramitsu.substrate_sdk.wsrpc.mappers.pojo
+import jp.co.soramitsu.substrate_sdk.wsrpc.request.DeliveryType
+import jp.co.soramitsu.substrate_sdk.wsrpc.request.runtime.RuntimeRequest
+import jp.co.soramitsu.substrate_sdk.wsrpc.request.runtime.chain.RuntimeVersion
 import kotlinx.coroutines.launch
-import kotlinx.serialization.json.Json
-import kotlinx.serialization.modules.SerializersModule
 
-private val socketService = SocketService(
-)
+private val socketService = SocketService()
 
 @Composable
 fun MainScreen() {
