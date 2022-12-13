@@ -93,7 +93,7 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                api(libs.ktor.okhttp)
+                api(libs.ktor.okhttp) // ktor-client-okhttp
 
                 implementation(libs.polkajscale)
                 implementation(libs.coroutines.android)
@@ -116,7 +116,7 @@ kotlin {
         val iosMain by creating {
             dependsOn(commonMain)
             dependencies {
-                implementation(libs.ktor.darwin)
+                api(libs.ktor.darwin)
             }
             iosX64Main.dependsOn(this)
             iosArm64Main.dependsOn(this)
@@ -134,6 +134,7 @@ kotlin {
     }
     android {
         publishAllLibraryVariants()
+        publishLibraryVariantsGroupedByFlavor = true
     }
 }
 
