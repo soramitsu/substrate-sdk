@@ -93,8 +93,7 @@ kotlin {
         }
         val androidMain by getting {
             dependencies {
-                api(libs.ktor.okhttp) // ktor-client-okhttp
-
+                implementation(libs.ktor.okhttp)
                 implementation(libs.polkajscale)
                 implementation(libs.coroutines.android)
                 implementation(libs.bundles.crypto.android)
@@ -116,7 +115,7 @@ kotlin {
         val iosMain by creating {
             dependsOn(commonMain)
             dependencies {
-                api(libs.ktor.darwin)
+                implementation(libs.ktor.darwin)
             }
             iosX64Main.dependsOn(this)
             iosArm64Main.dependsOn(this)
