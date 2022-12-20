@@ -1,0 +1,16 @@
+PODS:
+  - SubstrateSdk (0.0.1)
+
+DEPENDENCIES:
+  - SubstrateSdk (from `../substrate_sdk`)
+
+EXTERNAL SOURCES:
+  SubstrateSdk:
+    :path: "../substrate_sdk"
+
+SPEC CHECKSUMS:
+  SubstrateSdk: 6b02886dde44bebf32c767713645f61ce5fca07f
+
+PODFILE CHECKSUM: 7c9770d0675286776c3fd64f6ce75adaf7923850
+
+COCOAPODS: 1.11.3
