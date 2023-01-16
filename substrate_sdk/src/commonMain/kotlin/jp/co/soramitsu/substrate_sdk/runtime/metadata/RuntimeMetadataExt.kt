@@ -2,7 +2,6 @@ package jp.co.soramitsu.substrate_sdk.runtime.metadata
 
 import com.ionspin.kotlin.bignum.integer.toBigInteger
 import io.ktor.utils.io.core.toByteArray
-import jp.co.soramitsu.substrate_sdk.common.ByteArrayOutputStream
 import jp.co.soramitsu.substrate_sdk.extensions.toHexString
 import jp.co.soramitsu.substrate_sdk.hash.xxHash128
 import jp.co.soramitsu.substrate_sdk.runtime.RuntimeSnapshot
@@ -13,6 +12,7 @@ import jp.co.soramitsu.substrate_sdk.runtime.metadata.module.MetadataFunction
 import jp.co.soramitsu.substrate_sdk.runtime.metadata.module.Module
 import jp.co.soramitsu.substrate_sdk.runtime.metadata.module.StorageEntry
 import jp.co.soramitsu.substrate_sdk.runtime.metadata.module.StorageEntryType
+import okio.Buffer
 
 /**
  * @throws NoSuchElementException if module was not found
@@ -104,7 +104,7 @@ fun StorageEntry.storageKey(runtime: RuntimeSnapshot, vararg keys: Any?): String
         is StorageEntryType.NMap -> type.keys.zip(type.hashers)
     }
 
-    val keyOutputStream = ByteArrayOutputStream()
+    val keyOutputStream = Buffer()
 
     keyOutputStream.write(moduleHash())
     keyOutputStream.write(serviceHash())
@@ -117,7 +117,7 @@ fun StorageEntry.storageKey(runtime: RuntimeSnapshot, vararg keys: Any?): String
         keyOutputStream.write(keyHasher.hashingFunction(keyEncoded))
     }
 
-    return keyOutputStream.toByteArray().toHexString(withPrefix = true)
+    return keyOutputStream.readByteArray().toHexString(withPrefix = true)
 }
 
 fun StorageEntry.storageKeyOrNull(runtime: RuntimeSnapshot, vararg keys: Any?): String? {

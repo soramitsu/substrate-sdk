@@ -114,14 +114,18 @@ class CompoundTest {
 
     @Test
     fun `check Enum scale type encode`() {
-        val result = enumScale(TestEnumClass::class).encode(expectedDecodedEnum)
+        val result = enumScale(TestEnumClass::class) {
+            TestEnumClass.values()[it]
+        }.encode(expectedDecodedEnum)
         val resultHex = result.toHexString()
         assertEquals(expected = expectedEncodedEnumHex, actual = resultHex)
     }
 
     @Test
     fun `check Enum scale type decode`() {
-        val result = enumScale(TestEnumClass::class).decode(expectedEncodedEnumHex.fromHex())
+        val result = enumScale(TestEnumClass::class) {
+            TestEnumClass.values()[it]
+        }.decode(expectedEncodedEnumHex.fromHex())
         assertEquals(expected = expectedDecodedEnum, actual = result)
     }
 

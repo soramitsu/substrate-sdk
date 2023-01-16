@@ -50,7 +50,9 @@ object StorageMetadataSchema : Schema<StorageMetadataSchema>() {
 object StorageEntryMetadataSchema : Schema<StorageEntryMetadataSchema>() {
     val name by string()
 
-    val modifier by enum(StorageEntryModifier::class)
+    val modifier by enum(StorageEntryModifier::class) {
+        StorageEntryModifier.values()[it]
+    }
 
     val type by enum(
         stringScale, // plain
@@ -69,23 +71,31 @@ enum class StorageEntryModifier {
 }
 
 object MapSchema : Schema<MapSchema>() {
-    val hasher by enum(StorageHasher::class)
+    val hasher by enum(StorageHasher::class) {
+        StorageHasher.values()[it]
+    }
     val key by string()
     val value by string()
     val unused by bool()
 }
 
 object DoubleMapSchema : Schema<DoubleMapSchema>() {
-    val key1Hasher by enum(StorageHasher::class)
+    val key1Hasher by enum(StorageHasher::class) {
+        StorageHasher.values()[it]
+    }
     val key1 by string()
     val key2 by string()
     val value by string()
-    val key2Hasher by enum(StorageHasher::class)
+    val key2Hasher by enum(StorageHasher::class) {
+        StorageHasher.values()[it]
+    }
 }
 
 object NMapSchema : Schema<NMapSchema>() {
     val keys by vector(stringScale)
-    val hashers by vector(EnumScaleType(StorageHasher::class))
+    val hashers by vector(EnumScaleType(StorageHasher::class) {
+        StorageHasher.values()[it]
+    })
     val value by string()
 }
 

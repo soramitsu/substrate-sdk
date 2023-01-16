@@ -87,7 +87,10 @@ fun <S : Schema<S>> S.long(default: Long? = null) = NonNullFieldDelegate(longSca
 fun <S : Schema<S>> S.enum(vararg types: ScaleTransformer<*>, default: Any? = null) = NonNullFieldDelegate(
     unionScale(types), this, default)
 
-fun <S : Schema<S>, E : Enum<E>> S.enum(enumClass: KClass<E>, default: E? = null) = NonNullFieldDelegate(
-    EnumScaleType(enumClass), this, default)
+fun <S : Schema<S>, E : Enum<E>> S.enum(
+    enumClass: KClass<E>,
+    default: E? = null,
+    mappper: (Int) -> E
+) = NonNullFieldDelegate(EnumScaleType(enumClass, mappper), this, default)
 
 fun <S : Schema<S>, T> S.custom(type: ScaleTransformer<T>, default: T? = null) = NonNullFieldDelegate(type, this, default)

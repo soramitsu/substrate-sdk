@@ -32,7 +32,9 @@ object StorageMetadataV14 : Schema<StorageMetadataV14>() {
 
 object StorageEntryMetadataV14 : Schema<StorageEntryMetadataV14>() {
     val name by string()
-    val modifier by enum(StorageEntryModifier::class)
+    val modifier by enum(StorageEntryModifier::class) {
+        StorageEntryModifier.values()[it]
+    }
     val type by enum(
         compactIntScale,
         scalableScale(MapTypeV14),
@@ -42,7 +44,9 @@ object StorageEntryMetadataV14 : Schema<StorageEntryMetadataV14>() {
 }
 
 object MapTypeV14 : Schema<MapTypeV14>() {
-    val hashers by vector(EnumScaleType(StorageHasher::class))
+    val hashers by vector(EnumScaleType(StorageHasher::class) {
+        StorageHasher.values()[it]
+    })
     val key by compactInt()
     val value by compactInt()
 }

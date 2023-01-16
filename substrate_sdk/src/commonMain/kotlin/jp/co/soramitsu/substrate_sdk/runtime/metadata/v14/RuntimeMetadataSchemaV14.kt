@@ -46,7 +46,9 @@ object RegistryType : Schema<RegistryType>() {
         scalableScale(TypeDefSequence),
         scalableScale(TypeDefArray),
         listScale(compactIntScale),
-        EnumScaleType(TypeDefEnum::class),
+        EnumScaleType(TypeDefEnum::class) {
+            TypeDefEnum.values()[it]
+        },
         scalableScale(TypeDefCompact),
         scalableScale(TypeDefBitSequence),
     )

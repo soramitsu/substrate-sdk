@@ -1,6 +1,5 @@
 package jp.co.soramitsu.substrate_sdk.runtime.definitions.types
 
-import jp.co.soramitsu.substrate_sdk.common.ByteArrayOutputStream
 import jp.co.soramitsu.substrate_sdk.extensions.ensureExceptionType
 import jp.co.soramitsu.substrate_sdk.extensions.fromHex
 import jp.co.soramitsu.substrate_sdk.extensions.toHexString
@@ -9,6 +8,7 @@ import jp.co.soramitsu.substrate_sdk.runtime.definitions.types.composite.Alias
 import jp.co.soramitsu.substrate_sdk.runtime.definitions.types.errors.EncodeDecodeException
 import jp.co.soramitsu.substrate_sdk.scale.ScaleCodecReader
 import jp.co.soramitsu.substrate_sdk.scale.ScaleCodecWriter
+import okio.Buffer
 
 /**
  * @throws CyclicAliasingException
@@ -82,12 +82,12 @@ fun <I> Type<I>.toHexOrNull(runtime: RuntimeSnapshot, value: I) =
     toByteArrayOrNull(runtime, value)?.toHexString(withPrefix = true)
 
 fun useScaleWriter(use: ScaleCodecWriter.() -> Unit): ByteArray {
-    val stream = ByteArrayOutputStream()
+    val stream = Buffer()
     val writer = ScaleCodecWriter(stream)
 
     writer.use()
 
-    return stream.toByteArray()
+    return stream.readByteArray()
 }
 
 private inline fun <R> ensureUnifiedException(block: () -> R): R {

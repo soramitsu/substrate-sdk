@@ -1,10 +1,11 @@
 package jp.co.soramitsu.substrate_sdk.scale.dataType
 
-import jp.co.soramitsu.substrate_sdk.common.ByteArrayOutputStream
 import jp.co.soramitsu.substrate_sdk.scale.ScaleCodecReader
 import jp.co.soramitsu.substrate_sdk.scale.ScaleCodecWriter
 import jp.co.soramitsu.substrate_sdk.scale.ScaleReader
 import jp.co.soramitsu.substrate_sdk.scale.ScaleWriter
+import jp.co.soramitsu.substrate_sdk.scale.polkaj.scale.writer.BoolWriter
+import okio.Buffer
 
 interface ScaleEncoder<T> {
     fun encode(value: T): ByteArray
@@ -19,10 +20,10 @@ abstract class ScaleTransformer<T> :
     ScaleDecoder<T>, ScaleReader<T> {
 
     override fun encode(value: T): ByteArray {
-        val stream = ByteArrayOutputStream()
+        val stream = Buffer()
         val writer = ScaleCodecWriter(stream)
         write(writer, value)
-        return stream.toByteArray()
+        return stream.readByteArray()
     }
 
     override fun decode(bytes: ByteArray): T {
@@ -38,40 +39,64 @@ val byteArrayScale by lazy { ByteArrayScaleType() }
 
 fun byteArraySizedScale(length: Int) = ByteArraySizedScaleType(length)
 
-expect class StringScaleType(): ScaleTransformer<String> {
+class StringScaleType: ScaleTransformer<String>() {
 
-    override fun write(scaleWriter: ScaleCodecWriter, value: String)
+    override fun conformsType(value: Any?): Boolean {
+        return value is String
+    }
 
-    override fun read(reader: ScaleCodecReader): String
+    override fun read(reader: ScaleCodecReader): String {
+        return reader.readString()
+    }
 
-    override fun conformsType(value: Any?): Boolean
+    override fun write(scaleCodecWriter: ScaleCodecWriter, value: String) {
+        scaleCodecWriter.writeString(value)
+    }
 }
 
-expect class BooleanScaleType(): ScaleTransformer<Boolean> {
+class BooleanScaleType: ScaleTransformer<Boolean>() {
 
-    override fun write(scaleWriter: ScaleCodecWriter, value: Boolean)
+    override fun conformsType(value: Any?): Boolean {
+        return value is Boolean
+    }
 
-    override fun read(reader: ScaleCodecReader): Boolean
+    override fun read(reader: ScaleCodecReader): Boolean {
+        return reader.readBoolean()
+    }
 
-    override fun conformsType(value: Any?): Boolean
+    override fun write(scaleCodecWriter: ScaleCodecWriter, value: Boolean) {
+        scaleCodecWriter.write(BoolWriter(), value)
+    }
 }
 
-expect class ByteArrayScaleType(): ScaleTransformer<ByteArray> {
+class ByteArrayScaleType: ScaleTransformer<ByteArray>() {
 
-    override fun write(scaleWriter: ScaleCodecWriter, value: ByteArray)
+    override fun conformsType(value: Any?): Boolean {
+        return value is ByteArray
+    }
 
-    override fun read(reader: ScaleCodecReader): ByteArray
+    override fun read(reader: ScaleCodecReader): ByteArray {
+        return reader.readByteArray()
+    }
 
-    override fun conformsType(value: Any?): Boolean
+    override fun write(scaleCodecWriter: ScaleCodecWriter, value: ByteArray) {
+        scaleCodecWriter.writeByteArray(value)
+    }
 }
 
-expect class ByteArraySizedScaleType(
-    length: Int
-): ScaleTransformer<ByteArray> {
+class ByteArraySizedScaleType(
+    private val length: Int
+): ScaleTransformer<ByteArray>() {
 
-    override fun write(scaleWriter: ScaleCodecWriter, value: ByteArray)
+    override fun conformsType(value: Any?): Boolean {
+        return value is ByteArray
+    }
 
-    override fun read(reader: ScaleCodecReader): ByteArray
+    override fun read(reader: ScaleCodecReader): ByteArray {
+        return reader.readByteArray(length)
+    }
 
-    override fun conformsType(value: Any?): Boolean
+    override fun write(scaleCodecWriter: ScaleCodecWriter, value: ByteArray) {
+        scaleCodecWriter.directWrite(value, 0, length)
+    }
 }

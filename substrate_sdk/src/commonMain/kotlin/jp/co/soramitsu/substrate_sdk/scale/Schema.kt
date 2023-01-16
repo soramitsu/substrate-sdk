@@ -4,6 +4,7 @@ import jp.co.soramitsu.substrate_sdk.extensions.fromHex
 import jp.co.soramitsu.substrate_sdk.extensions.toHexString
 import jp.co.soramitsu.substrate_sdk.scale.dataType.OptionalScaleType
 import jp.co.soramitsu.substrate_sdk.scale.dataType.ScaleTransformer
+import okio.Buffer
 
 abstract class BaseSchema<S : Schema<S>> {
 
@@ -47,10 +48,44 @@ abstract class BaseSchema<S : Schema<S>> {
         toByteArray(struct).toHexString(withPrefix = true)
 }
 
-@Suppress("UNCHECKED_CAST")
-expect abstract class Schema<S : Schema<S>>() : BaseSchema<S> {
+abstract class Schema<S : Schema<S>> :
+    BaseSchema<S>(),
+    ScaleReader<EncodableStruct<S>>,
+    ScaleWriter<EncodableStruct<S>> {
 
-    override fun read(bytes: ByteArray): EncodableStruct<S>
+    override fun read(bytes: ByteArray): EncodableStruct<S> {
+        val reader = ScaleCodecReader(bytes)
+        return read(reader)
+    }
 
-    override fun toByteArray(struct: EncodableStruct<S>): ByteArray
+    override fun read(reader: ScaleCodecReader): EncodableStruct<S> {
+        val struct = EncodableStruct(this as S)
+
+        for (field in fields) {
+            val value = field.dataType.read(reader)
+            struct[field as Field<Any?>] = value
+        }
+
+        return struct
+    }
+
+    override fun toByteArray(struct: EncodableStruct<S>): ByteArray {
+        val outputStream = Buffer()
+
+        val writer = ScaleCodecWriter(outputStream)
+
+        write(writer, struct)
+
+        return outputStream.readByteArray()
+    }
+
+    override fun write(writer: ScaleCodecWriter, struct: EncodableStruct<S>) {
+        for (field in fields) {
+            val value = struct.fieldsWithValues[field]
+
+            val type = field.dataType as ScaleTransformer<Any?>
+
+            type.write(writer, value)
+        }
+    }
 }

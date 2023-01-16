@@ -1,5 +1,6 @@
 import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+import org.jetbrains.kotlin.gradle.targets.native.tasks.KotlinNativeSimulatorTest
 
 plugins {
     id("com.android.library")
@@ -94,7 +95,7 @@ kotlin {
         val androidMain by getting {
             dependencies {
                 implementation(libs.ktor.okhttp)
-                implementation(libs.polkajscale)
+                //implementation(libs.polkajscale)
                 implementation(libs.coroutines.android)
                 implementation(libs.bundles.crypto.android)
                 implementation(libs.lz4)
@@ -152,4 +153,7 @@ tasks.register<Copy>("copyiOSTestResources") {
     into("build/bin/iosX64/debugTest/resources")
 }
 
-tasks.findByName("iosX64Test")!!.dependsOn("copyiOSTestResources")
+tasks.getByName<KotlinNativeSimulatorTest>("iosSimulatorArm64Test") {
+    dependsOn("copyiOSTestResources")
+    deviceId = "iPhone 14"
+}
