@@ -8,5 +8,6 @@ actual fun generateSCrypt(
     p: Int,
     scryptKeyLength: Int
 ): ByteArray {
-    TODO()
+    // TODO?
+    return byteArrayOf()
 }

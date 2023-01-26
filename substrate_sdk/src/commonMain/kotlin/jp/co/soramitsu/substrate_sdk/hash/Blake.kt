@@ -6,10 +6,15 @@ import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 
+private val blake2b_32 by lazy { Algorithm.Blake2b(32).createDigest() }
 private val blake2b_128 by lazy { Algorithm.Blake2b(128).createDigest() }
 private val blake2b_256 by lazy { Algorithm.Blake2b(256).createDigest() }
 private val blake2b_512 by lazy { Algorithm.Blake2b(512).createDigest() }
 private val mutex = Mutex()
+
+fun ByteArray.blake2b32(): ByteArray {
+    return threadSafe { blake2b_32.digest(this) }
+}
 
 fun ByteArray.blake2b128(): ByteArray {
     return threadSafe { blake2b_128.digest(this) }

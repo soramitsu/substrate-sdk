@@ -68,6 +68,8 @@ kotlin {
         framework {
             baseName = iosFrameworkName
         }
+
+        pod("IrohaCrypto")
     }
     
     sourceSets {

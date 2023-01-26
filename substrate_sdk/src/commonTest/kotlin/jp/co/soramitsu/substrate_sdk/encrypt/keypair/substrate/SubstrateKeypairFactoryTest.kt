@@ -44,6 +44,18 @@ class SubstrateKeypairFactoryTest {
     @Test
     fun `should generate sr25519 keypair`() {
         // sr25519 impossible to test in android
-        assertEquals(expected = true, actual = true)
+        val seed = "3132333435363738393031323334353637383930313233343536373839303132".fromHex()
+        val result = SubstrateKeypairFactory.generate(
+            encryptionType = EncryptionType.SR25519,
+            seed = seed
+        )
+
+        val expectedPublicKeyHex = "741c08a06f41c596608f6774259bd9043304adfa5d3eea62760bd9be97634d63"
+        val expectedPrivateKeyHex = "1ec20c6cb85bf4c7423b95752b70c312e6ae9e5701ffb310f0a9019d9c041e0a"
+
+        assertContentEquals(
+            listOf(expectedPublicKeyHex, expectedPrivateKeyHex),
+            listOf(result.publicKey.toHexString(), result.privateKey.toHexString())
+        )
     }
 }

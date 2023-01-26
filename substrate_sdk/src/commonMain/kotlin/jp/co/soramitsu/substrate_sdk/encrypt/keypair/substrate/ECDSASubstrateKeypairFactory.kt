@@ -1,6 +1,8 @@
 package jp.co.soramitsu.substrate_sdk.encrypt.keypair.substrate
 
-abstract class BaseECDSASubstrateKeypairFactory : OtherSubstrateKeypairFactory() {
+import jp.co.soramitsu.substrate_sdk.encrypt.keypair.derivePublicKeyEcdsa
+
+class ECDSASubstrateKeypairFactory : OtherSubstrateKeypairFactory() {
 
     override val hardDerivationPrefix: String = "Secp256k1HDKD"
 
@@ -12,9 +14,7 @@ abstract class BaseECDSASubstrateKeypairFactory : OtherSubstrateKeypairFactory()
         )
     }
 
-    protected abstract fun derivePublicKey(privateKeyOrSeed: ByteArray): ByteArray
-}
-
-expect class ECDSASubstrateKeypairFactory() : BaseECDSASubstrateKeypairFactory {
-    override fun derivePublicKey(privateKeyOrSeed: ByteArray): ByteArray
+    private fun derivePublicKey(privateKeyOrSeed: ByteArray): ByteArray {
+        return derivePublicKeyEcdsa(privateKeyOrSeed)
+    }
 }

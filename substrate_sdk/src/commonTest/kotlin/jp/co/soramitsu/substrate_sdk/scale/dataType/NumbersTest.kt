@@ -3,14 +3,8 @@ package jp.co.soramitsu.substrate_sdk.scale.dataType
 import com.ionspin.kotlin.bignum.integer.BigInteger
 import jp.co.soramitsu.substrate_sdk.extensions.fromHex
 import jp.co.soramitsu.substrate_sdk.extensions.toHexString
-import jp.co.soramitsu.substrate_sdk.scale.ScaleCodecWriter
-import okio.Buffer
-import kotlin.random.Random
-import kotlin.random.nextUInt
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.time.ExperimentalTime
-import kotlin.time.measureTime
 
 class NumbersTest {
 

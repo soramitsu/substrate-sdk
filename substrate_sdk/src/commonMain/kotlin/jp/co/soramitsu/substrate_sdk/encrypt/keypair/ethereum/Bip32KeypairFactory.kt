@@ -2,7 +2,7 @@ package jp.co.soramitsu.substrate_sdk.encrypt.keypair.ethereum
 
 import com.ionspin.kotlin.bignum.integer.BigInteger
 import com.ionspin.kotlin.bignum.integer.toBigInteger
-import jp.co.soramitsu.substrate_sdk.encrypt.hmacSHA512
+import jp.co.soramitsu.substrate_sdk.encrypt.hmacSha512
 import jp.co.soramitsu.substrate_sdk.encrypt.junction.Junction
 import jp.co.soramitsu.substrate_sdk.encrypt.junction.JunctionType
 import jp.co.soramitsu.substrate_sdk.encrypt.keypair.KeypairFactory
@@ -24,7 +24,7 @@ object Bip32KeypairFactory : KeypairFactory<Bip32ExtendedKeyPair> {
     }
 
     override fun deriveFromSeed(seed: ByteArray): Bip32ExtendedKeyPair {
-        val hmacResult = seed.hmacSHA512(secret = INITIAL_SEED)
+        val hmacResult = seed.hmacSha512(secret = INITIAL_SEED)
 
         val privateKey = hmacResult.sliceArray(0 until PRIVATE_KEY_SIZE)
         val chainCode = hmacResult.sliceArray(PRIVATE_KEY_SIZE until hmacResult.size)
@@ -53,7 +53,7 @@ object Bip32KeypairFactory : KeypairFactory<Bip32ExtendedKeyPair> {
             }
         }
 
-        val hmacResult = sourceData.hmacSHA512(secret = parent.chaincode)
+        val hmacResult = sourceData.hmacSha512(secret = parent.chaincode)
 
         val privateKeySourceData = hmacResult.sliceArray(0 until PRIVATE_KEY_SIZE)
         val childChainCode = hmacResult.sliceArray(PRIVATE_KEY_SIZE until hmacResult.size)

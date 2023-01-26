@@ -1,6 +1,5 @@
 package jp.co.soramitsu.substrate_sdk.scale
 
-import com.ionspin.kotlin.bignum.integer.BigInteger
 import io.ktor.utils.io.charsets.Charsets
 import io.ktor.utils.io.core.toByteArray
 import jp.co.soramitsu.substrate_sdk.common.exceptions.IOException
@@ -9,7 +8,6 @@ import jp.co.soramitsu.substrate_sdk.scale.polkaj.scale.writer.BoolWriter
 import jp.co.soramitsu.substrate_sdk.scale.polkaj.scale.writer.CompactBigIntWriter
 import jp.co.soramitsu.substrate_sdk.scale.polkaj.scale.writer.CompactUIntWriter
 import jp.co.soramitsu.substrate_sdk.scale.polkaj.scale.writer.LongWriter
-import jp.co.soramitsu.substrate_sdk.scale.polkaj.scale.writer.UInt128Writer
 import jp.co.soramitsu.substrate_sdk.scale.polkaj.scale.writer.UInt16Writer
 import jp.co.soramitsu.substrate_sdk.scale.polkaj.scale.writer.UInt32Writer
 import jp.co.soramitsu.substrate_sdk.scale.polkaj.scale.writer.ULong32Writer
@@ -102,11 +100,6 @@ class ScaleCodecWriter(
     }
 
     @Throws(IOException::class)
-    fun writeUint128(value: BigInteger) {
-        UINT128.write(this, value)
-    }
-
-    @Throws(IOException::class)
     fun writeCompact(value: Int) {
         COMPACT_UINT.write(this, value)
     }
@@ -140,7 +133,6 @@ class ScaleCodecWriter(
         val COMPACT_BIGINT = CompactBigIntWriter()
         val UINT16 = UInt16Writer()
         val UINT32 = UInt32Writer()
-        val UINT128 = UInt128Writer()
         val ULONG32 = ULong32Writer()
         val BOOL = BoolWriter()
         val BOOL_OPT = BoolOptionalWriter()

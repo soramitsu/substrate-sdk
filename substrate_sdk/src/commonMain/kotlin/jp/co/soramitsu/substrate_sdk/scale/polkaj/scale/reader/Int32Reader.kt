@@ -22,6 +22,6 @@ class Int32Reader : ScaleReader<Int> {
         buf.write(reader.readByte())
         buf.write(reader.readByte())
         return 0
-        //return buf.flip().getInt(); // TODO: Return it!
+        //return buf.flip().getInt(); // TODO!: Return it!
     }
 }

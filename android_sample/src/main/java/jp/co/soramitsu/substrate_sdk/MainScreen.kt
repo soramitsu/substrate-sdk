@@ -1,6 +1,7 @@
 package jp.co.soramitsu.substrate_sdk
 
 import android.util.Log
+import android.widget.Toast
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -11,7 +12,10 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import jp.co.soramitsu.substrate_sdk.encrypt.EncryptionType
+import jp.co.soramitsu.substrate_sdk.encrypt.MultiChainEncryption
+import jp.co.soramitsu.substrate_sdk.encrypt.keypair.substrate.Sr25519Keypair
 import jp.co.soramitsu.substrate_sdk.encrypt.keypair.substrate.SubstrateKeypairFactory
+import jp.co.soramitsu.substrate_sdk.encrypt.signer
 import jp.co.soramitsu.substrate_sdk.extensions.fromHex
 import jp.co.soramitsu.substrate_sdk.extensions.toHexString
 import jp.co.soramitsu.substrate_sdk.wsrpc.SocketService
@@ -48,6 +52,29 @@ fun MainScreen() {
                         listOf(result.publicKey.toHexString(), result.privateKey.toHexString())
 
                 ToastManager.showToast(context, text = "is correct keypair: $isCorrectKeypair")
+            }
+        )
+        AppButton(
+            text = "Sign SR25519",
+            onClick = {
+                val message =
+                    "0400340a806419d5e278172e45cb0e50da1b031795366c99ddfe0a680bd53b142c6302286bee0000002d00000003000000e143f23803ac50e8f6f8e62695d1ce9e4e1d68aa36c1cd2cfd15340213f3423ee143f23803ac50e8f6f8e62695d1ce9e4e1d68aa36c1cd2cfd15340213f3423e"
+                val messageBytes = message.fromHex()
+
+                val seed = "3132333435363738393031323334353637383930313233343536373839303132".fromHex()
+                val keypair = SubstrateKeypairFactory.generate(EncryptionType.SR25519, seed) as Sr25519Keypair
+
+                val privateKey = keypair.privateKey.toHexString()
+                val publicKey = keypair.publicKey.toHexString()
+                val nonce = keypair.nonce.toHexString()
+
+                val result = signer.sign(MultiChainEncryption.Substrate(EncryptionType.SR25519), messageBytes, keypair)
+
+                println("privateKey: $privateKey")
+                println("publicKey: $publicKey")
+                println("nonce: $nonce")
+                println("Result: " + result.signature.toHexString())
+                Toast.makeText(context, "Ready", Toast.LENGTH_SHORT).show()
             }
         )
         AppButton(

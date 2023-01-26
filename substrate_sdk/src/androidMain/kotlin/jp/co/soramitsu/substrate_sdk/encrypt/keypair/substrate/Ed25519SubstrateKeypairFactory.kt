@@ -33,4 +33,4 @@ actual class Ed25519SubstrateKeypairFactory : BaseEd25519SubstrateKeypairFactory
             publicKey = public.copyOfRange(ED25519_PUBLIC_KEY_PREFIX.length / 2, public.size)
         )
     }
-}
+} // 2f8c6129d816cf51c374bc7f08c3e63ed156cf78aefb4a6550d97b87997977ee - f0106660c3dda23f16daa9ac5b811b963077f5bc0af89f85804f0de8e424f050

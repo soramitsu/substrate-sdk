@@ -158,7 +158,6 @@ class EnumScaleType<E : Enum<E>>(
     override fun read(reader: ScaleCodecReader): E {
         val index = reader.readByte().toInt()
         return mappper.invoke(index)
-        // return enumClass.cast(null) // TODO: infinity_coder: Rework
     }
 
     override fun write(scaleCodecWriter: ScaleCodecWriter, value: E) {

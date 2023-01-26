@@ -5,5 +5,5 @@ actual fun hsalsa20(
     `in`: ByteArray?,
     k: ByteArray?
 ) {
-    TODO()
+    // TODO?
 }

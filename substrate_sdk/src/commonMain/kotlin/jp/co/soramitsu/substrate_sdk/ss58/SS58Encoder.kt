@@ -1,6 +1,7 @@
 package jp.co.soramitsu.substrate_sdk.ss58
 
-import jp.co.soramitsu.substrate_sdk.encrypt.Base58
+import jp.co.soramitsu.substrate_sdk.encrypt.decodeBase58
+import jp.co.soramitsu.substrate_sdk.encrypt.encodeToBase58String
 import jp.co.soramitsu.substrate_sdk.encrypt.json.coders.copyBytes
 import jp.co.soramitsu.substrate_sdk.exceptions.AddressFormatException
 import jp.co.soramitsu.substrate_sdk.hash.blake2b256
@@ -13,8 +14,6 @@ object SS58Encoder {
     private val PREFIX = "SS58PRE".encodeToByteArray()
     private const val PREFIX_SIZE = 2
     private const val PUBLIC_KEY_SIZE = 32
-
-    private val base58 = Base58()
 
     private fun getPrefixLenIdent(decodedByteArray: ByteArray): Pair<Int, Short> {
         return when {
@@ -52,12 +51,12 @@ object SS58Encoder {
 
         val resultByteArray = addressTypeByteArray + normalizedKey + checksum
 
-        return base58.encode(resultByteArray)
+        return resultByteArray.encodeToBase58String()
     }
 
     @Throws(IllegalArgumentException::class)
     fun decode(ss58String: String): ByteArray {
-        val decodedByteArray = base58.decode(ss58String)
+        val decodedByteArray = ss58String.decodeBase58()
         if (decodedByteArray.size < 2) throw IllegalArgumentException("Invalid address")
         val (prefixLen, _) = getPrefixLenIdent(decodedByteArray)
         val hash = (PREFIX + decodedByteArray.copyBytes(0, PUBLIC_KEY_SIZE + prefixLen)).blake2b512()
@@ -70,7 +69,7 @@ object SS58Encoder {
 
     @Throws(AddressFormatException::class)
     fun extractAddressByte(address: String): Short {
-        val decodedByteArray = base58.decode(address)
+        val decodedByteArray = address.decodeBase58()
         if (decodedByteArray.size < 2) throw IllegalArgumentException("Invalid address")
         val (_, ident) = getPrefixLenIdent(decodedByteArray)
         return ident
